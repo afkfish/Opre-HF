@@ -1,0 +1,70 @@
+# A,1,2,7
+# B,1,2,3
+scheduler = Scheduler()
+scheduler.add_process(Process("A", 1, 2, 7))
+scheduler.add_process(Process("B", 1, 2, 3))
+scheduler.run()
+# ABABA
+# A:3,B:4
+#
+# Q,0,5,8
+# P,1,7,2
+scheduler = Scheduler()
+scheduler.add_process(Process("Q", 0, 5, 8))
+scheduler.add_process(Process("P", 1, 7, 2))
+scheduler.run()
+# QPQ
+# Q:2,P:0
+#
+# A,0,0,5
+# B,0,0,4
+# C,0,1,3
+# D,0,2,1
+scheduler = Scheduler()
+scheduler.add_process(Process("A", 0, 0, 5))
+scheduler.add_process(Process("B", 0, 0, 4))
+scheduler.add_process(Process("C", 0, 1, 3))
+scheduler.add_process(Process("D", 0, 2, 1))
+scheduler.run()
+# BDBCA
+# A:8,B:1,C:4,D:0
+#
+#
+# A,0,0,3
+# B,1,0,2
+# C,0,3,3
+# D,1,4,1
+scheduler = Scheduler()
+scheduler.add_process(Process("A", 0, 0, 3))
+scheduler.add_process(Process("B", 1, 0, 2))
+scheduler.add_process(Process("C", 0, 3, 3))
+scheduler.add_process(Process("D", 1, 4, 1))
+scheduler.run()
+# BADAC
+# A:3,B:0,C:3,D:0
+# Egy ráadás, kicsit fogósabb:
+#
+# A,0,0,5
+# B,0,1,3
+# C,1,1,1
+# D,0,4,1
+# E,1,3,2
+scheduler = Scheduler()
+scheduler.add_process(Process("A", 0, 0, 5))
+scheduler.add_process(Process("B", 0, 1, 3))
+scheduler.add_process(Process("C", 1, 1, 1))
+scheduler.add_process(Process("D", 0, 4, 1))
+scheduler.add_process(Process("E", 1, 3, 2))
+scheduler.run()
+# ACBEDBA
+# A:7,B:4,C:0,E:0,D:1
+# Végül egy vitatható eset:
+#
+# A,1,3,5
+# D,1,6,1
+scheduler = Scheduler()
+scheduler.add_process(Process("A", 1, 3, 5))
+scheduler.add_process(Process("D", 1, 6, 1))
+scheduler.run()
+# ADA
+# A:1,D:1
